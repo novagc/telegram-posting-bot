@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace TelegramPostingBot.Config.Reader
 {
-    class BasicConfigReader<T> : IConfigReader<T>
+    class BasicConfigReader<T> : IConfigReader<T> where T : class
     {
         public string ConfigPath { get; set; }
 

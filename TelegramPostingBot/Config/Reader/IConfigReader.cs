@@ -5,7 +5,7 @@ using TelegramPostingBot.Config.Model;
 
 namespace TelegramPostingBot.Config
 {
-    interface IConfigReader<T>
+    interface IConfigReader<T> where T : class
     {
         string ConfigPath { get; set; }
 
