@@ -18,5 +18,30 @@ namespace TelegramPostingBot.Post.Model
             Text = text;
             Attachments = attachments.Take(10).ToArray();
         }
+
+        public BasePostModel GetTextPost(string text)
+        {
+            return new BasePostModel(PostType.Text, text, null);
+        }
+
+        public BasePostModel GetImagesPost(IEnumerable<string> imageUrls, string text = null)
+        {
+            return new BasePostModel(PostType.Images, text, imageUrls);
+        }
+
+        public BasePostModel GetAudioPost(string audioUrl, string text = null)
+        {
+            return new BasePostModel(PostType.Audio, text, new []{ audioUrl });
+        }
+
+        public BasePostModel GetContactPost(string text, IEnumerable<string> info)
+        {
+            return new BasePostModel(PostType.Contact, text, info);
+        }
+
+        public BasePostModel GetStickerPost(string sticker)
+        {
+            return new BasePostModel(PostType.Sticker, null, new []{ sticker });
+        }
     }
 }
