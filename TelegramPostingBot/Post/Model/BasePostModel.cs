@@ -8,7 +8,7 @@ namespace TelegramPostingBot.Post.Model
 {
     class BasePostModel :IPostModel
     {
-        public PostType Type { get; private set; }
+        public PostType Type { get; }
         public string Text { get; set; }
         public string[] Attachments { get; set; }
 
@@ -16,7 +16,7 @@ namespace TelegramPostingBot.Post.Model
         {
             Type = type;
             Text = text;
-            Attachments = attachments.Take(10).ToArray();
+            Attachments = attachments?.Take(10).ToArray();
         }
 
         public static BasePostModel CreateTextPost(string text)
@@ -52,11 +52,6 @@ namespace TelegramPostingBot.Post.Model
         public static BasePostModel CreateContactPost(string text, IEnumerable<string> info)
         {
             return new BasePostModel(PostType.Contact, text, info);
-        }
-
-        public static BasePostModel CreateStickerPost(string sticker)
-        {
-            return new BasePostModel(PostType.Sticker, null, new []{ sticker });
         }
     }
 }

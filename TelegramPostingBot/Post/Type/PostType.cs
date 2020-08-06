@@ -14,7 +14,6 @@ namespace TelegramPostingBot.Post.Type
         Images,
         Videos,
         Audio,
-        Contact,
-        Sticker
+        Contact
     }
 }
