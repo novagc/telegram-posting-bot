@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TelegramPostingBot.Config.Model
 {
-    class BotConfigModel
+    interface IBotConfigModel
     {
         public string BotToken { get; set; }
         public string[] TelegramChannels { get; set; }
