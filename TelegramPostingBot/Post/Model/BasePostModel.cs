@@ -24,9 +24,14 @@ namespace TelegramPostingBot.Post.Model
             return new BasePostModel(PostType.Text, text, null);
         }
 
-        public static BasePostModel CreateMediaPost(string mediaUrl, string text = null)
+        public static BasePostModel CreateImagePost(string imageUrl, string text = null)
         {
-            return new BasePostModel(PostType.Media, text, new []{ mediaUrl });
+            return new BasePostModel(PostType.Image, text, new []{ imageUrl });
+        }
+
+        public static BasePostModel CreateVideoPost(string videoUrl, string text = null)
+        {
+            return new BasePostModel(PostType.Video, text, new[] { videoUrl });
         }
 
         public static BasePostModel CreateImagesPost(IEnumerable<string> imageUrls)

@@ -9,7 +9,8 @@ namespace TelegramPostingBot.Post.Type
     enum PostType
     {
         Text,
-        Media,
+        Image,
+        Video,
         Images,
         Videos,
         Audio,
